@@ -105,7 +105,121 @@ A detailed exploratory data analysis (EDA) was performed to understand the datas
 
 ✅ After EDA, irrelevant columns (e.g., *Unnamed: 0, first, last, merchant, street, zip, trans_num etc) were removed, while meaningful features were **transformed or engineered** for modeling.  
 
-  
+  ## 🔧 Feature Engineering for Credit Card Fraud Detection
+
+---
+
+## 📌 1. Dropped / Irrelevant Columns
+The following columns were removed as they don’t contribute directly to modeling:
+- `Unnamed: 0` → index column  
+- `cc_num` → card number (used only for aggregation, not modeling)  
+- `merchant` → merchant name (irrelevant for fraud prediction)  
+- `street`, `zip`, `city` → highly granular, less predictive  
+- `first`, `last` → irrelevant personal identifiers  
+- `trans_num` → unique transaction ID  
+
+---
+
+## 📌 2. Feature Engineering Steps
+
+### 🗓️ 2.1 Date of Birth → Age
+- Converted `dob` into `age`.  
+- Created **age bins**:  
+  - `0–18`, `19–30`, `31–45`, `46–60`, `61–75`, `76+`  
+- Applied **One-Hot Encoding (OHE)** to bins.  
+- Dropped original `dob` column.  
+
+---
+
+### 🚻 2.2 Gender
+- Encoded gender (`M`, `F`) using **OHE**.  
+
+---
+
+### 🛒 2.3 Transaction Category
+- Original categories (14 unique) grouped into **4 broader classes**:  
+
+| Original Categories | Grouped Category |
+|---------------------|------------------|
+| `grocery_pos`, `grocery_net`, `gas_transport`, `home` | Essentials |
+| `personal_care`, `health_fitness`, `kids_pets` | Lifestyle & Wellbeing |
+| `entertainment`, `food_dining`, `travel` | Discretionary |
+| `shopping_pos`, `shopping_net`, `misc_pos`, `misc_net` | Shopping & Misc |
+
+- Applied **OHE** on grouped categories.  
+
+---
+
+### 🌍 2.4 Location Features
+- Applied **reverse geocoding** on (`lat`, `long`) → extracted **State, City, Country**.  
+- Dropped `City` and `Country`.  
+- Engineered **State → Region mapping**:
+
+| Region     | Example States |
+|------------|----------------|
+| Western    | California, Oregon, Washington, Nevada, Arizona |
+| Northern   | Minnesota, Iowa, Illinois, Michigan, Ohio |
+| Southern   | Texas, Florida, Georgia, Virginia, Alabama |
+| Eastern    | New York, New Jersey, Pennsylvania, Massachusetts |
+
+- Applied **OHE** on `Region`.  
+
+---
+
+### 🏙️ 2.5 City Population
+- Population (`city_pop`) was highly skewed.  
+- Created **population bins**:  
+  - `Micro Town` → 0–25,000  
+  - `Small Town` → 25,001–50,000  
+  - `Mid City` → 50,001–100,000  
+  - `Large City` → 100,001–200,000  
+  - `Metro City` → 200,001+  
+
+- Example fraud distribution by city category:  
+
+| City Category | Total Txn | Fraud Txn | Fraud Rate |
+|---------------|-----------|-----------|------------|
+| Micro Town    | 426,735   | 1,757     | ~0%        |
+| Small Town    | 25,467    | 44        | ~0%        |
+| Mid City      | 27,601    | 136       | ~0%        |
+| Large City    | 24,501    | 46        | ~0%        |
+| Metro City    | 51,415    | 162       | ~0%        |
+
+- Applied **OHE** on city categories.  
+
+---
+
+### 💳 2.6 Transaction Amount
+- Retained `amt` (transaction amount) as-is.  
+- Hypothesis: Fraud may occur more often at **smaller amounts** (to avoid detection) or at **sudden high-value transactions**.  
+
+---
+
+### 🕒 2.7 Transaction Time
+- From `trans_date_trans_time`, derived additional temporal features:  
+  - `hour` of transaction  
+  - `day_of_week`  
+  - `month`  
+- Useful to capture fraud trends (e.g., late-night or weekend fraud).  
+
+---
+
+## ✅ Final Engineered Feature Set
+1. **Demographics**  
+   - `age_bin` (OHE)  
+   - `gender` (OHE)  
+
+2. **Transaction Info**  
+   - `amt`  
+   - `category_grouped` (OHE)  
+   - `trans_time_features` (`hour`, `day_of_week`, `month`)  
+
+3. **Geographic Info**  
+   - `region` (OHE)  
+   - `city_category` (OHE)  
+
+---
+
 
 
 ---
