@@ -1,5 +1,14 @@
 # 📌 Credit Risk Modeling
 
+## 🎯 Project Objective  
+
+The goal of this project is to build a **machine learning model** to predict fraudulent credit card transactions. By analyzing transaction and customer data, the model helps stakeholders:  
+
+- Detect fraudulent patterns in real-time  
+- Minimize financial losses due to fraud  
+- Improve trust and security in digital transactions  
+- Optimize fraud prevention strategies for financial institutions  
+
 ## 📂 Dataset
 
 - **Source:** [Credit Card Fraud Detection Dataset (Kaggle)](https://www.kaggle.com/datasets)   
@@ -20,11 +29,3 @@ The dataset provides a realistic representation of both legitimate and fraudulen
 
 ---
 
-## 🎯 Project Objective  
-
-The goal of this project is to build a **machine learning model** to predict fraudulent credit card transactions. By analyzing transaction and customer data, the model helps stakeholders:  
-
-- Detect fraudulent patterns in real-time  
-- Minimize financial losses due to fraud  
-- Improve trust and security in digital transactions  
-- Optimize fraud prevention strategies for financial institutions  
