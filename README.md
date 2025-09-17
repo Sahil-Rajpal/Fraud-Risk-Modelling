@@ -39,6 +39,34 @@ The primary objective of this project is to **assess credit risk** by predicting
 - 🔎 **Interpretability** – Use feature importance and Woe-Iv values to explain which factors contribute most to Fraud risk.  
 - 🏦 **Business Impact** – Provide a reliable tool for financial institutions to minimize risk of fruadlent transactions.
 
+## 📂 Data Description  
+
+The project uses the **fraudTrain.csv** dataset, which contains detailed information about credit card transactions.  
+Below are the key fields:  
+
+- **Unnamed: 0** → Unique ID for each transaction  
+- **trans_date_trans_time** → Date and time of the transaction  
+- **cc_num** → Credit card number  
+- **Customer_Acq_Cost** → The price paid to acquire the customer  
+- **merchant** → Merchant name where the transaction occurred  
+- **category** → Transaction category (e.g., personal_care, health_fitness, travel, misc_pos, etc.)  
+- **first** → First name of the cardholder  
+- **last** → Last name of the cardholder  
+- **gender** → Gender of the cardholder (M/F)  
+- **amt** → Transaction amount (value spent)  
+- **street** → Street address of the transaction location  
+- **city** → City where the transaction occurred (200+ cities)  
+- **state** → State where the transaction occurred  
+- **zip** → Zip or pincode of the transaction region  
+- **lat, long** → Latitude and longitude of the cardholder’s location  
+- **city_pop** → Population of the city (e.g., 10,000; 23,000, etc.)  
+- **job** → Occupation of the cardholder  
+- **dob** → Date of birth of the cardholder  
+- **trans_num** → Unique transaction number generated for each transaction  
+- **merch_lat, merch_long** → Latitude and longitude of the merchant/business location  
+- **is_fraud** → Target variable (0 = Legitimate, 1 = Fraudulent)  
+
+
 
   
 
