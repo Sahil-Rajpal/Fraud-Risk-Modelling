@@ -47,7 +47,6 @@ Below are the key fields:
 - **Unnamed: 0** → Unique ID for each transaction  
 - **trans_date_trans_time** → Date and time of the transaction  
 - **cc_num** → Credit card number  
-- **Customer_Acq_Cost** → The price paid to acquire the customer  
 - **merchant** → Merchant name where the transaction occurred  
 - **category** → Transaction category (e.g., personal_care, health_fitness, travel, misc_pos, etc.)  
 - **first** → First name of the cardholder  
