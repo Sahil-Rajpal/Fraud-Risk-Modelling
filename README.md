@@ -41,7 +41,7 @@ The primary objective of this project is to **assess credit risk** by predicting
 
 ## 📂 Data Description  
 
-The project uses the **fraudTrain.csv** dataset, which contains detailed information about credit card transactions.  
+The project uses the **fraudTrain.csv** and **fraudTest.csv** dataset, which contains detailed information about credit card transactions.  
 Below are the key fields:  
 
 - **Unnamed: 0** → Unique ID for each transaction  
