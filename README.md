@@ -66,6 +66,44 @@ Below are the key fields:
 - **is_fraud** → Target variable (0 = Legitimate, 1 = Fraudulent)  
 
 
+## 🔎 Exploratory Data Analysis (EDA)  
+
+A detailed exploratory data analysis (EDA) was performed to understand the dataset, remove irrelevant features, and identify patterns useful for fraud detection.  
+
+### Feature-Wise Insights  
+
+- **Unnamed: 0** → Contains 555,719 counts; only an index column, hence **dropped**.  
+- **trans_date_trans_time** → Date & time of transaction; used for time-based analysis but not directly for modeling.  
+- **cc_num** → Unique card number; not used in modeling but helpful for calculating **total number of transactions** and **transaction volume per card**.  
+- **merchant** → Merchant names; removed due to high cardinality and irrelevance for modeling.  
+- **category** → Transaction category (e.g., *personal_care, health_fitness, travel, misc_pos*).  
+  - Categories were **grouped into 4–5 bins** based on fraud transaction counts and relevance.  
+- **first, last** → First/last names of cardholders; **removed** as irrelevant.  
+- **gender** → Gender distribution of transactions shows:  
+  - Female: **54.86%**  
+  - Male: **45.13%**  
+  - Fraud rate varies slightly between genders, making it relevant for modeling.  
+- **amt** → Transaction amount; critical for modeling since fraud may depend on transaction value (small or large).  
+- **street** → Street address; **dropped** due to irrelevance.  
+- **city, state** → Geographic information. Certain states show higher fraud rates. Example:  
+
+| State | Total Txn | Fraud Txn | Fraud Rate |
+|-------|-----------|-----------|------------|
+| NY    | 35,918    | 175       | 0.49       |
+| IN    | 11,959    | 75        | 0.63       |
+| VA    | 12,506    | 75        | 0.60       |
+| OR    | 7,811     | 48        | 0.61       |
+| MS    | 8,833     | 54        | 0.61       |
+
+- **zip** → High cardinality; not useful for modeling.  
+- **lat, long** → Latitude & longitude of cardholder; potential for fraud hotspot analysis.  
+- **city_pop** → Population of the cardholder’s city; can help detect fraud trends in **small vs. large cities**.  
+- **job** → Occupation of the cardholder; may provide socioeconomic insight into fraud likelihood.  
+- **dob** → Date of birth; used to derive **age feature**, which can influence fraud risk.  
+- **trans_num** → Unique transaction ID; dropped from modeling.   
+
+
+✅ After EDA, irrelevant columns (e.g., *Unnamed: 0, first, last, merchant, street, zip, trans_num etc) were removed, while meaningful features were **transformed or engineered** for modeling.  
 
   
 
