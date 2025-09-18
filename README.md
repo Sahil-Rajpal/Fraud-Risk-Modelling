@@ -307,6 +307,7 @@ Tree-based models like **Random Forest** and **XGBoost** can effectively capture
 
 📌 This approach ensures that the model has a **richer feature space** and can make more accurate splits, leading to better fraud detection performance in practice.
 
+---
 
 ## ⚖️ Handling Imbalanced Data  
 
@@ -321,21 +322,21 @@ This imbalance can cause issues like:
 
 To address this, we applied **sampling and weighting techniques**:
 
----
+
 
 ### 🔹 1. SMOTE (Synthetic Minority Oversampling Technique)  
 - Creates **synthetic samples** for the minority class (instead of just duplicating).  
 - ✅ Pros: Better class balance, reduced bias, prevents overfitting.  
 - ❌ Cons: Computationally heavy, may amplify noise, struggles with categorical/high-dimensional data.  
 
----
+
 
 ### 🔹 2. ADASYN (Adaptive Synthetic Sampling)  
 - Extension of SMOTE that generates **more synthetic samples** for “hard-to-learn” cases (low density or near decision boundary).  
 - ✅ Pros: Focuses on difficult examples, improves discrimination between classes.  
 - ❌ Cons: More complex, sensitive to noise, risk of overfitting.  
 
----
+
 
 ### 🔹 3. Cost-Sensitive Learning  
 - Modifies the **loss function** by assigning **higher weights** to the minority class and lower weights to the majority class.  
