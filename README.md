@@ -225,23 +225,39 @@ After feature engineering, the dataset contained a large number of variables (in
 
 ---
 
-## 📌 WOE (Weight of Evidence)  
-The **Weight of Evidence (WOE)** measures the predictive power of an independent variable in relation to the dependent variable (fraud vs. non-fraud).  
+## 📌 Weight of Evidence (WOE)
+
+The **Weight of Evidence (WOE)** is used to measure how well an independent variable separates the binary target classes (e.g., fraud vs. non-fraud).  
+It transforms categorical or continuous predictors into a scale that reflects their predictive power.  
+
+**Interpretation:**
+- WOE > 0 → Higher likelihood of being a non-event (e.g., non-fraud).  
+- WOE < 0 → Higher likelihood of being an event (e.g., fraud).  
+- WOE = 0 → No predictive power.  
 
 **Formula:**  
-\[
-WOE = \ln \left(\frac{\% \text{ of non-events}}{\% \text{ of events}}\right)
-\]
+
+`WOE = ln( (% of non-events) / (% of events) )`  
+
 
 ---
 
-## 📌 IV (Information Value)  
-The **Information Value (IV)** ranks variables based on their predictive strength.  
+## 📌 Information Value (IV)
+
+The **Information Value (IV)** quantifies the predictive strength of a variable in relation to the target.  
+It is derived from the distribution differences between events and non-events.  
+
+**Interpretation (commonly used thresholds):**
+- IV < 0.02 → Not predictive  
+- 0.02 ≤ IV < 0.1 → Weak predictor  
+- 0.1 ≤ IV < 0.3 → Medium predictor  
+- 0.3 ≤ IV < 0.5 → Strong predictor  
+- IV ≥ 0.5 → Suspiciously powerful (possible data leakage)  
 
 **Formula:**  
-\[
-IV = \sum \left( (\% \text{ of non-events} - \% \text{ of events}) \times WOE \right)
-\]
+
+`IV = Σ [ ( % of non-events - % of events ) * WOE ]`  
+
 
 ---
 
