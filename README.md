@@ -219,6 +219,77 @@ The following columns were removed as they don’t contribute directly to modeli
    - `city_category` (OHE)  
 
 ---
+# 🎯 Feature Selection  
+
+After feature engineering, the dataset contained a large number of variables (including multiple one-hot encoded columns). To improve model performance, reduce noise, and avoid overfitting, **feature selection** techniques were applied.  
+
+---
+
+## 📌 WOE (Weight of Evidence)  
+The **Weight of Evidence (WOE)** measures the predictive power of an independent variable in relation to the dependent variable (fraud vs. non-fraud).  
+
+**Formula:**  
+\[
+WOE = \ln \left(\frac{\% \text{ of non-events}}{\% \text{ of events}}\right)
+\]
+
+---
+
+## 📌 IV (Information Value)  
+The **Information Value (IV)** ranks variables based on their predictive strength.  
+
+**Formula:**  
+\[
+IV = \sum \left( (\% \text{ of non-events} - \% \text{ of events}) \times WOE \right)
+\]
+
+---
+
+## 📊 IV Values of Features  
+The following table summarizes the **calculated IV values** (from Excel results):  
+
+| Feature                              | IV Value       |
+|--------------------------------------|----------------|
+| amt                                  | 3.8378         |
+| category_bin_Shopping & Misc         | 0.2049         |
+| category_bin_Lifestyle & Wellbeing   | 0.1531         |
+| city_category_Small Town             | 0.0211         |
+| city_category_Micro Town             | 0.0162         |
+| age_group_61-75                      | 0.0093         |
+| age_group_76+                        | 0.0058         |
+| age_group_46-60                      | 0.0054         |
+| city_category_Metro City             | 0.0038         |
+| city_category_Mid City               | 0.0036         |
+| category_bin_Essentials              | 0.0024         |
+| region_Northern                      | 0.0017         |
+| region_Southern                      | 0.0015         |
+| age_group_31-45                      | 0.0015         |
+| gender_M                             | 0.0001         |
+| region_Western                       | 0.00006        |
+
+---
+
+## ⚖️ Feature Selection Approaches  
+
+### ✅ Approach 1: High-IV Features Only  
+- Use only features with **high IV values** (e.g., `amt`, `category_bin_Shopping & Misc`, `category_bin_Lifestyle & Wellbeing`).  
+- Pros: Reduces dimensionality, highlights the strongest predictors.  
+- Cons: Risk of oversimplifying → potential **overfitting** since multivariate effects are ignored.  
+
+### ✅ Approach 2: Keep All Features  
+- Use all engineered features, even those with **low IV values**, since in multivariate analysis their **combinations** can still contribute to detecting fraud.  
+- Pros: Richer feature space for models like Random Forest, XGBoost.  
+- Cons: Higher complexity, potential noise introduction.  
+
+---
+
+## 🎯 Final Choice  
+We proceeded with **Approach 2 (All Engineered Features)** since fraud detection is often driven by **combinations of variables** rather than single predictors.  
+
+Even though some features have low IV values, they may still provide **useful multivariate interactions** (e.g., transaction amount × region, age group × category).  
+Tree-based models like **Random Forest** and **XGBoost** can effectively capture these relationships.  
+
+📌 This approach ensures that the model has a **richer feature space** and can make more accurate splits, leading to better fraud detection performance in practice.
 
 
 
