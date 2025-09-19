@@ -369,7 +369,8 @@ The best results were obtained using a **combination of Cost-Sensitive Learning 
 
 **Performance Metrics:**  
 - ✅ **Accuracy:** 0.96  
-- ✅ **Macro Avg Recall:** 0.93  
+- ✅ **Macro Avg Recall:** 0.93
+- ✅ **AUC Score:** 0.98  
 - ✅ **KS Metric Difference (Train vs Test):** 3.58  
 
 **Fraud Detection Results:**  
