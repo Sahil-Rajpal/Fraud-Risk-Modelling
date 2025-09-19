@@ -347,3 +347,35 @@ To address this, we applied **sampling and weighting techniques**:
 
 ---
 
+## 🤖 Model Training  
+
+We experimented with multiple models to detect credit card fraud:  
+- **Decision Tree**  
+- **Random Forest**  
+- **XGBoost**  
+- **LightGBM**  
+
+### 🔧 Training Approach  
+- Built **baseline models** for comparison.  
+- Applied **hyperparameter tuning** using **GridSearchCV**.  
+- Incorporated **sampling techniques**:  
+  - **SMOTE (oversampling)**  
+  - **Cost-Sensitive Learning (class weighting)**  
+
+---
+
+### 🏆 Best Model  
+The best results were obtained using a **combination of Cost-Sensitive Learning + XGBoost**.  
+
+**Performance Metrics:**  
+- ✅ **Accuracy:** 0.96  
+- ✅ **Macro Avg Recall:** 0.93  
+- ✅ **KS Metric Difference (Train vs Test):** 3.58  
+
+**Fraud Detection Results:**  
+- Detected **579 fraud cases** out of **644** in test data.  
+- Successfully detected **159,000+ fraud cases** out of **166,000+** in test data.  
+
+📌 This combination offered the **best balance of accuracy, recall, and generalization**.  
+
+
