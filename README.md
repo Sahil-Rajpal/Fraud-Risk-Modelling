@@ -11,7 +11,7 @@ The goal of this project is to build a **machine learning model** to predict fra
 
 ## 📂 Dataset
 
-- **Source:** [Credit Card Fraud Detection Dataset (Kaggle)](https://www.kaggle.com/datasets)   
+- **Source:** [Credit Card Fraud Detection Dataset (Kaggle)](https://www.kaggle.com/datasets/kartik2112/fraud-detection)   
 - **Duration Covered:** 1st Jan 2019 – 31st Dec 2020  
 - **Scale:**  
   - 1000 customers  
