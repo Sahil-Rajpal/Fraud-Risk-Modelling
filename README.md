@@ -373,8 +373,8 @@ The best results were obtained using a **combination of Cost-Sensitive Learning 
 - ✅ **KS Metric Difference (Train vs Test):** 3.58  
 
 **Fraud Detection Results:**  
-- Detected **579 fraud cases** out of **644** in test data.  
-- Successfully detected **159,000+ fraud cases** out of **166,000+** in test data.  
+- Detected **579 fraud transactions** out of **644** in test data.  
+- Successfully detected **159,000+ legitimate transactions** out of **166,000+** in test data.  
 
 📌 This combination offered the **best balance of accuracy, recall, and generalization**.  
 
