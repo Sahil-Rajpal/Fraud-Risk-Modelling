@@ -375,7 +375,7 @@ The best results were obtained using a **combination of Cost-Sensitive Learning 
 
 **Fraud Detection Results:**  
 - Detected **497 fraud transactions** out of **644** in test data.  
-- Successfully detected **159,000+ legitimate transactions** out of **166,000+** in test data.  
+- Successfully detected **100,800+ legitimate transactions** out of **166,000+** in test data.  
 
 📌 This combination offered the **best balance of accuracy, recall, and generalization**.  
 
