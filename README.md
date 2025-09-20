@@ -368,13 +368,13 @@ We experimented with multiple models to detect credit card fraud:
 The best results were obtained using a **combination of Cost-Sensitive Learning + XGBoost**.  
 
 **Performance Metrics:**  
-- ✅ **Accuracy:** 0.96  
-- ✅ **Macro Avg Recall:** 0.93
-- ✅ **AUC Score:** 0.98  
-- ✅ **KS Metric Difference (Train vs Test):** 3.58  
+- ✅ **Accuracy:** 0.61  
+- ✅ **Recall:** 0.77
+- ✅ **AUC Score:** 0.75  
+- ✅ **KS Metric Difference (Train vs Test):** 4.28  
 
 **Fraud Detection Results:**  
-- Detected **579 fraud transactions** out of **644** in test data.  
+- Detected **497 fraud transactions** out of **644** in test data.  
 - Successfully detected **159,000+ legitimate transactions** out of **166,000+** in test data.  
 
 📌 This combination offered the **best balance of accuracy, recall, and generalization**.  
