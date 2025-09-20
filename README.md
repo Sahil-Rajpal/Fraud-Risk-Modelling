@@ -1,4 +1,4 @@
-# 📌 Credit Risk Modeling
+# 📌 Fraud Risk Modeling
 
 ## 🎯 Project Objective  
 
